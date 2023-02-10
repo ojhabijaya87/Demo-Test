@@ -1,0 +1,50 @@
+{
+  "name": "qa_automation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:prettier": "npx prettier --write '**/*.ts'",
+    "lint:eslint": "npx eslint . --ext .ts --fix",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true",
+    "cy:prod:open": "npx cypress open --config-file config/prod.ts --env allure=true",
+    "cy:prod:run": "npx cypress run --config-file config/prod.ts --env tags=@test,allure=true",
+    "cy:qa:open": "npx cypress open --config-file config/qa.ts --env allure=true",
+    "cy:qa:run": "npx cypress run --config-file config/qa.ts --env tags=@test,allure=true",
+    "cy:uat:open": "npx cypress open --config-file config/uat.ts --env allure=true",
+    "cy:uat:run": "npx cypress run --config-file config/uat.ts --env tags=@test,allure=true"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/browserify-preprocessor": "latest",
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "@slack/web-api": "^6.7.2",
+    "@types/chai": "^4.3.3",
+    "@types/mochawesome": "^6.2.1",
+    "@types/pg": "^8.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "allure-commandline": "^2.20.1",
+    "chai": "^4.3.6",
+    "cypress": "^12.5.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "3.2.2",
+    "cypress-multi-reporters": "^1.6.1",
+    "cypress-wait-until": "^1.7.2",
+    "cypress-xpath": "^2.0.1",
+    "dogapi": "^2.8.4",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha-junit-reporter": "^2.0.2",
+    "multiple-cucumber-html-reporter": "^1.21.6",
+    "pg": "^8.8.0",
+    "prettier": "^2.7.1",
+    "typescript": "latest"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "step_definitions": "cypress/support/step_definitions/"
+  }
+}
