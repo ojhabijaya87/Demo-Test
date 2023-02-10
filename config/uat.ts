@@ -57,7 +57,7 @@ export default defineConfig({
     specPattern: '**/review/**/*.feature',
     supportFile: 'cypress/support/e2e.ts',
     setupNodeEvents,
-    baseUrl: 'https://loss-adjuster.integ.tractable.io',
+    baseUrl: 'https://magento.softwaretestingboard.com/',
     chromeWebSecurity: false,
     numTestsKeptInMemory: 10,
     fixturesFolder: 'cypress/e2e/fixtures/review',
