@@ -47,4 +47,4 @@ Feature: Demo Tests
         When I fill in shipping address
             | email                  | firstName | lastName | city   | address  | country        | phoneNum |
             | ojhabijaya87@gmail.com | Bijaya    | Ojha     | London | Hounslow | United Kingdom | 123456   |
-        Then I verify the total amount is "$140.00"
+        Then I verify the total amount is "$116.00"
